@@ -27,4 +27,7 @@ echo -e "\e[45m[BUILD]\e[49m To   \e[32m$BUILD_DIR/front\e[39m"
 mv build "$BUILD_DIR/front"
 
 # Build back end
+echo -e "\n\e[45m[BUILD]\e[49m Back-end directory:  \e[32m$BACK_DIR\e[39m"
+cd "$BACK_DIR"
+go build -o "$BUILD_DIR/run_server"
 

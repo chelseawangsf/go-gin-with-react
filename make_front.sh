@@ -22,4 +22,4 @@ cd "$FRONT_DIR"
 yarn build
 echo -e "\e[45m[BUILD]\e[49m Move \e[32m$FRONT_DIR/build\e[39m"
 echo -e "\e[45m[BUILD]\e[49m To   \e[32m$BUILD_DIR/front\e[39m"
-mv build "$BUILD_DIR/front"
+mv "$FRONT_DIR/build" "$BUILD_DIR/front"

@@ -17,12 +17,27 @@ func main() {
 	}
 
 	fmt.Println("Starting server")
+
 	router := gin.Default()
+
+	// [GET]ping
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
 		})
 	})
+
+	// [POST]upload
+	router.POST("/upload", func(c *gin.Context) {
+		_, header, err := c.Request.FormFile("file")
+		if err != nil {
+			fmt.Println("Error @ upload")
+			log.Fatal(err)
+		}
+		filename := header.Filename
+		fmt.Println(filename)
+	})
+
 	// Serve frontend static files
 	router.Use(static.Serve("/", static.LocalFile(binDir+"/front", true)))
 

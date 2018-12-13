@@ -11,6 +11,7 @@ class App extends Component {
       message: '',
       selectedFile: null,
       loaded: 0,
+      image: '',
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -64,6 +65,7 @@ class App extends Component {
     this.setState({
       selectedFile: event.target.files[0],
       loaded: 0,
+      image: URL.createObjectURL(event.target.files[0]),
     });
   };
 
@@ -97,6 +99,7 @@ class App extends Component {
           <input type="file" name="" id="" onChange={this.handleSelectedFile} />
           <button onClick={this.handleUpload}>Upload</button>
           <div> {Math.round(this.state.loaded, 2)} %</div>
+          <img id="target" src={this.state.image} />
         </div>
       </div>
     );
